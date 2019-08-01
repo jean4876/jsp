@@ -8,6 +8,7 @@
 </head>
 <%
 	// jsp에 내장되어있는 기본 객체가 존재 : request, response
+	
 %>
 <body>
    request.getLocalAddr() local IP = <%=request.getLocalAddr() %><br>
