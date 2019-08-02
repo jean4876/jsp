@@ -20,6 +20,15 @@
    -->
    
    <%
+   
+   	request.setCharacterEncoding("utf-8");
+   
+   %>
+   
+   
+   request method : <%=request.getMethod() %> <br>
+   
+   <%
       String userId = request.getParameter("userId");
       String password = request.getParameter("password");
       
