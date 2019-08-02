@@ -16,11 +16,12 @@
       userId, password
       String userId = request.getParameter("userId");//문자열userId
       String userId = request.getParameter(userId);//변수userId
-      String password = request.getParameter("password");
+      String password = request.getParameter("password");ㅋ
    -->
    
    <%
-   
+   //parameter 관련 메소드를 호출하기 전에 setCaracterEncoding 메소드를 호출해야
+   //인코딩 설정이 적용된다.
    	request.setCharacterEncoding("utf-8");
    
    %>
@@ -67,11 +68,5 @@
 		
 			<%=parameterName %> <br>
 		<%} %>
-			
-			
-		
-	
-	
-	   
 </body>
 </html>
