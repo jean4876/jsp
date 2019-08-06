@@ -30,7 +30,7 @@
 			HttpSession httpSession = request.getSession();
 			UserVO userVo = (UserVO) httpSession.getAttribute("S_USERVO");
 			String userName = "";
-			userName = userVo == null ? "" : userVo.getUserName();
+			userName = userVo == null ? "" : userVo.getUserNM();
 		%>
 		사용자 이름:
 		<%=userName%>
@@ -47,12 +47,12 @@
 				userId = userId == null ? "" : userId;
 			%>
 			<input type="text" id="inputEmail" class="form-control" name="userId"
-				placeholder="userId" required autofocus value=<%=userId%>>
+				placeholder="userId" required autofocus value ="brown">
 			<!-- value ="brown" -->
 
 			<label for="pass" class="sr-only">Password</label> <input
 				type="password" id="pass" name="pass" class="form-control"
-				placeholder="Password" required>
+				placeholder="Password" required value ="brown1234" >
 			<!-- value ="brown1234" -->
 			<div class="checkbox">
 				<label> <input type="checkbox" value="remember-me">
