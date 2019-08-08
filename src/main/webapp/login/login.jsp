@@ -1,4 +1,4 @@
-<%@page import="kr.or.ddit.user.model.UserVO"%>
+<%@page import="kr.or.ddit.user.model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -28,7 +28,7 @@
 	<div class="container">
 		<%
 			HttpSession httpSession = request.getSession();
-			UserVO userVo = (UserVO) httpSession.getAttribute("S_USERVO");
+			User userVo = (User) httpSession.getAttribute("S_USERVO");
 			String userName = "";
 			userName = userVo == null ? "" : userVo.getUserNM();
 		%>

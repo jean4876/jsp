@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import kr.or.ddit.user.model.UserVO;
+import kr.or.ddit.user.model.User;
 
 public class UserDaoTest {
 
@@ -15,6 +15,7 @@ public class UserDaoTest {
     * Method : getUserListTest
     * 작성자 : PC-11
     * 변경이력 :
+    * 
     * Method 설명 : getUserList 테스트
     */
    @Test
@@ -23,7 +24,7 @@ public class UserDaoTest {
       IUserDao userDao = new UserDao();
       
       /***When***/
-      List<UserVO> userList = userDao.getUserList();
+      List<User> userList = userDao.getUserList();
       
       /***Then***/
       assertEquals(5, userList.size());
@@ -44,7 +45,7 @@ public class UserDaoTest {
 	IUserDao userDao = new UserDao();
 	
 	/***When***/
-	UserVO userVo =  userDao.getUser(userId);
+	User userVo =  userDao.getUser(userId);
 
 	/***Then***/
 	assertEquals("브라운", userVo.getUserNM());
