@@ -15,16 +15,7 @@
 <link rel="icon" href="../../favicon.ico">
 
 <title>Jsp</title>
-
-<script src="<%=request.getContextPath()%>/js/jquery-3.4.1.min.js"></script>
-<link href="<%=request.getContextPath()%>/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Bootstrap core CSS -->
-<script src="<%=request.getContextPath()%>/bootstrap/js/bootstrap.min.js"></script>
-
-<!-- Custom styles for this template -->
-<link href="<%=request.getContextPath()%>/css/dashboard.css" rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
+<%@ include file="/commonJsp/basicLib.jsp" %>
 </head>
 
 <body>
