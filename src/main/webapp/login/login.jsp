@@ -23,10 +23,15 @@
     <!-- jQuery -->
     <script src="<%=request.getContextPath()%>/js/jquery-3.4.1.min.js"></script>
     
+    <!-- js.cookie -->
+    <script src="<%=request.getContextPath()%>/js/js.cookie.js"></script>
+    
    <script>
       $(document).ready(function () {
     	  
-    	  var userId = getCookie("userId");
+    	  
+    	  
+    	  var userId = Cookies.get("userId");
     	  
     	  if(userId != undefined){
     		  $('#userId').val(userId);
@@ -39,9 +44,11 @@
             
             // remember me check box가 체크가 되었는지??
             if($('#rememberMe').prop("checked")){
-               setCookie("userId", $('#userId').val(), 30);
+            	Cookies.set("userId", $('#userId').val(), {expires : 30});
+               //setCookie("userId", $('#userId').val(), 30);
             }else {
-               deleteCookie("userId");
+               //deleteCookie("userId");
+               Cookies.remove("userId");
             }
             
             //로그인 요청
