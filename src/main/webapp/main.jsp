@@ -13,7 +13,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>Jsp</title>  
+<title>Jsp</title>
 <%@ include file="/commonJsp/basicLib.jsp" %>
 </head>
 
@@ -21,17 +21,17 @@
 
 <!-- header -->
 <%@ include file="/commonJsp/header.jsp" %>
-	
+
 <div class="container-fluid">
 		<div class="row">
-			
+
 <div class="col-sm-3 col-md-2 sidebar">
 
  	<!-- left -->
  	<%@ include file="/commonJsp/left.jsp" %>
- 	
+
 </div><div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				
+
 
 <div class="blog-header">
 	<h1 class="blog-title">Main</h1>
@@ -50,7 +50,7 @@
 
 			<p>jsp를 통한 웹 프로그래밍 학습</p>
 			<hr>
-			
+
 			<h3>상세내역</h3>
 			<p>JSP과정에서는 다음과 같은 내용을 학습한다.</p>
 			<ul>
