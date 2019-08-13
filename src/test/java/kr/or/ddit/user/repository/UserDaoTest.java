@@ -11,28 +11,28 @@ import kr.or.ddit.user.model.User;
 public class UserDaoTest {
 
    /**
-    * 
+    *
     * Method : getUserListTest
     * 작성자 : PC-11
     * 변경이력 :
-    * 
+    *
     * Method 설명 : getUserList 테스트
     */
    @Test
    public void getUserListTest() {
       /***Given***/
       IUserDao userDao = new UserDao();
-      
+
       /***When***/
       List<User> userList = userDao.getUserList();
-      
+
       /***Then***/
-      assertEquals(5, userList.size());
+      assertEquals(105, userList.size());
 
    }
-   
+
    /**
-    * 
+    *
     * Method : getUserTest
     * 작성자 : PC-23
     * 변경이력 :
@@ -43,17 +43,34 @@ public class UserDaoTest {
 	/***Given***/
 	String userId = "brown";
 	IUserDao userDao = new UserDao();
-	
+
 	/***When***/
 	User userVo =  userDao.getUser(userId);
 
 	/***Then***/
 	assertEquals("브라운", userVo.getUserNM());
 	assertEquals("brown1234", userVo.getPass());
+   }
 
-	
+   /**
+    *
+    * Method : getUserListTest
+    * 작성자 : PC-23
+    * 변경이력 :
+    * Method 설명 : getUserListOnlyHalf 테스트
+    */
+   @Test
+   public void getUserListOnlyHalf() {
+      /***Given***/
+      IUserDao userDao = new UserDao();
+
+      /***When***/
+      List<User> userList = userDao.getUserListOnlyHalf();
+
+      /***Then***/
+      assertEquals(50, userList.size());
 
    }
-   
+
 
 }
