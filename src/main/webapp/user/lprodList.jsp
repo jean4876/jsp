@@ -19,10 +19,28 @@
 
 <title>Jsp</title>
 <%@ include file="/commonJsp/basicLib.jsp"%>
+<script>
+   // 문서 로딩이 완료되고 나서
+   $(document).ready(function () {
+
+
+
+      // 사용자 정보 클릭시 이벤트 핸들러
+      $(".lProdTr").on('click', function () {
+
+    	 console.log($(this).children().first().text());
+         $('#lprod_gu').val($(this).children().first().text());
+         $('#frm').submit();
+      });
+   })
+</script>
+
 </head>
 
 <body>
-
+<form id="frm" action="${cp }/Prod" method="get">
+	<input type="hidden" id="lprod_gu" name="lprod_gu">
+</form>
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
@@ -67,15 +85,15 @@
 						<div class="table-responsive">
 							<table class="table table-striped">
 								<tr>
-									<th>Lprod_id</th>
 									<th>Lprod_gu</th>
+									<th>Lprod_id</th>
 									<th>Lprod_NM</th>
 								</tr>
 
 								<c:forEach items="${lprodList}" var="lprod">
-									<tr>
-										<td>${lprod.lprod_id}</td>
+									<tr class = "lProdTr">
 										<td>${lprod.lprod_gu}</td>
+										<td>${lprod.lprod_id}</td>
 										<td>${lprod.lprod_nm}</td>
 
 									</tr>

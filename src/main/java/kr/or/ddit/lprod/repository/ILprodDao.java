@@ -9,4 +9,5 @@ public interface ILprodDao {
 
 	List<LprodVO> selectAllLprodList();
 
+
 }

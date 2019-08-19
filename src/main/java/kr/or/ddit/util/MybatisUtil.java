@@ -9,9 +9,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class MybatisUtil {
-	
+
 	private static SqlSessionFactory factory;
-	
+
 	static {
 		String resource = "kr/or/ddit/config/mybatis/mybatis-config.xml";
 		try {

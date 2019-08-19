@@ -4,6 +4,6 @@
 <ul class="nav nav-sidebar">
    <!-- a tag : get method -->
    <li class="active"><a href="<%=request.getContextPath() %>/userList">사용자리스트 <span class="sr-only">(current)</span></a></li>
-   <li class="active"><a href="<%=request.getContextPath() %>/userListOnlyHalf">사용자리스트(onlyHalf) <span class="sr-only">(current)</span></a></li>
-   <li class="active"><a href="<%=request.getContextPath() %>/lprodList">제품그룹리스트</a></li>
+   <li class="active"><a href="<%=request.getContextPath() %>/UserListOnlyHalf">사용자리스트(onlyHalf) <span class="sr-only">(current)</span></a></li>
+   <li class="active"><a href="<%=request.getContextPath() %>/LprodServlet">제품그룹리스트</a></li>
 </ul>
