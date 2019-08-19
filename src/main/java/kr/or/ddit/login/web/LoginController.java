@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.omg.CORBA.RepositoryIdHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,20 +45,20 @@ public class LoginController extends HttpServlet {
 
       //webapp/jsp/login.jsp  --> jsp.login.jsp
 
-     // 웹브라우저가 보낸 cookie확인
-     Cookie[] cookies = request.getCookies();
-     if(cookies != null) {
-        for(Cookie cookie : cookies) {
+	  // 웹브라우저가 보낸 cookie확인
+	  Cookie[] cookies = request.getCookies();
+	  if(cookies != null) {
+		  for(Cookie cookie : cookies) {
 
-           logger.debug("cookie name : {}, cookie value : {}", cookie.getName(), cookie.getValue());
+			  logger.debug("cookie name : {}, cookie value : {}", cookie.getName(), cookie.getValue());
 
-        }
-     }
+		  }
+	  }
 
-     // 응답을 생성할 때 웹브라우저에게 쿠키를 저장할 것을 지시
-     Cookie cookie = new Cookie("serverGen", "serverValue");
-     cookie.setMaxAge(60*60*24*7); // 7일의 유효기간을 갖는 쿠키      // :) setMaxAge는 초단위 이다.
-     response.addCookie(cookie);
+	  // 응답을 생성할 때 웹브라우저에게 쿠키를 저장할 것을 지시
+	  Cookie cookie = new Cookie("serverGen", "serverValue");
+	  cookie.setMaxAge(60*60*24*7); // 7일의 유효기간을 갖는 쿠키		// :) setMaxAge는 초단위 이다.
+	  response.addCookie(cookie);
 
       request.getRequestDispatcher("/login/login.jsp").forward(request, response);
 
@@ -78,63 +77,59 @@ public class LoginController extends HttpServlet {
     */
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-      logger.debug("login controller doPost()");
+	   logger.debug("login controller doPost()");
 
-      // userId, password 파라미터 logger 출력
-      String userId = request.getParameter("userId");
-      String pass = request.getParameter("pass");
+	   // userId, password 파라미터 logger 출력
+	   String userId = request.getParameter("userId");
+	   String pass = request.getParameter("pass");
 
-      String rememberMe = request.getParameter("rememberMe");
+	   String rememberMe = request.getParameter("rememberMe");
 
-      // rememberMe 파라미터가 존재할 경우 userId를 cookie로 생성
-      manageUserIdCookie(response, userId, rememberMe);
+	   // rememberMe 파라미터가 존재할 경우 userId를 cookie로 생성
+	   manageUserIdCookie(response, userId, rememberMe);
 
-      logger.debug("userId : {}", userId);
-      logger.debug("password : {}", pass);
+	   logger.debug("userId : {}", userId);
+	   logger.debug("password : {}", pass);
 
-      // 사용자가 입력한 계정정보와 db에 있는 값이랑 비교
-//      UserVO userVo = new UserVO();
-//      userVo.setUserNm("브라운");
-//      userVo.setUserId("brown");
-//      userVo.setPass("brown1234");
+	   // 사용자가 입력한 계정정보와 db에 있는 값이랑 비교
 
-      //db에서 조회해온 사용자 정보
-      User user = userDao.getUser(userId);
+	   //db에서 조회해온 사용자 정보
+	   User user = userDao.getUser(userId);
 
-      // 사용자가 입력한 파라미터 정보와 db에서 조회해온 값이 동일 할 경우 --> webapp/main.jsp
-      // 사용자가 입력한 파라미터 정보와 db에서 조회해온 값이 다를 경우 --> webapp/login/login.jsp
+	   // 사용자가 입력한 파라미터 정보와 db에서 조회해온 값이 동일 할 경우 --> webapp/main.jsp
+	   // 사용자가 입력한 파라미터 정보와 db에서 조회해온 값이 다를 경우 --> webapp/login/login.jsp
 
-      // db에 존재하지 않는 사용자 체크 --> 로그인 화면으로 이동
-      if(user == null) {
-         doGet(request, response);
-      } else if(user.checkLoginValidate(userId, pass)) {
+	   // db에 존재하지 않는 사용자 체크 --> 로그인 화면으로 이동
+	   if(user == null) {
+		   doGet(request, response);
+	   } else if(user.checkLoginValidate(userId, pass)) {
 
-         HttpSession session = request.getSession();
-         logger.debug("session.getId() : {}",session.getId());
+		   HttpSession session = request.getSession();
+		   logger.debug("session.getId() : {}",session.getId());
 
-         session.setAttribute("S_USERVO", user);
-         request.setAttribute("elTest", "elTestValue") ;
+		   session.setAttribute("S_USERVO", user);
+		   request.setAttribute("elTest", "elTestValue");
 
-         request.getRequestDispatcher("/main.jsp").forward(request, response);
-      }else {
-         // forward의 경우 request, response객체를 공유
-         // request method도 같이 공유
-         // doPost
-         //request.setAttribute("userId", userId);
-         doGet(request, response);
-      }
+		   request.getRequestDispatcher("/main.jsp").forward(request, response);
+	   }else {
+		   // forward의 경우 request, response객체를 공유
+		   // request method도 같이 공유
+		   // doPost
+		   //request.setAttribute("userId", userId);
+		   doGet(request, response);
+	   }
    }
 
-   private void manageUserIdCookie(HttpServletResponse response, String userId, String rememberMe) {
-      Cookie cookie = new Cookie("userId", userId);
+	private void manageUserIdCookie(HttpServletResponse response, String userId, String rememberMe) {
+		Cookie cookie = new Cookie("userId", userId);
 
-         if(rememberMe != null) {
-            cookie.setMaxAge(60*60*24*30); // 30일
-         }else {
-            cookie.setMaxAge(0); // 삭제 -> :) 기간이 만료
-         }
+		   if(rememberMe != null) {
+			   cookie.setMaxAge(60*60*24*30); // 30일
+		   }else {
+			   cookie.setMaxAge(0); // 삭제 -> :) 기간이 만료
+		   }
 
-         response.addCookie(cookie);
-   }
+		   response.addCookie(cookie);
+	}
 
 }
