@@ -47,7 +47,7 @@
                <div class="form-group">
                   <label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
                   <div class="col-sm-10">
-                     <label class="control-label">${user.userNm }</label>
+                     <label class="control-label">${user.userNM }</label>
                   </div>
                </div>
 

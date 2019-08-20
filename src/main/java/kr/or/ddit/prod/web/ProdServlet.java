@@ -37,9 +37,7 @@ public class ProdServlet extends HttpServlet {
 
 		logger.debug("lprodgu = {}");
 
-
 		String prod_lgu = request.getParameter("lprod_gu");
-
 
 		List<prodVO> list = prodDao.selectLProdList(prod_lgu);
 
