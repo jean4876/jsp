@@ -28,9 +28,15 @@
       // 사용자 정보 클릭시 이벤트 핸들러
       $(".lProdTr").on('click', function () {
 
-    	 console.log($(this).children().first().text());
+/*     	 console.log($(this).children().first().text());
          $('#lprod_gu').val($(this).children().first().text());
-         $('#frm').submit();
+         $('#frm').submit(); */
+
+
+    	  var dataValue = $(this).data("lprod_gu");
+    	  $('#lprod_gu').val(dataValue);
+    	  $('#frm').submit();
+
       });
    })
 </script>
@@ -39,7 +45,7 @@
 
 <body>
 <form id="frm" action="${cp }/Prod" method="get">
-	<input type="hidden" id="lprod_gu" name="lprod_gu">
+	 
 </form>
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -91,7 +97,8 @@
 								</tr>
 
 								<c:forEach items="${lprodList}" var="lprod">
-									<tr class = "lProdTr">
+									<tr class = "lProdTr" data-lprod_gu="${lprod.lprod_gu}">
+									<input type="hidden" value="${lprod.lprod_gu}">
 										<td>${lprod.lprod_gu}</td>
 										<td>${lprod.lprod_id}</td>
 										<td>${lprod.lprod_nm}</td>
