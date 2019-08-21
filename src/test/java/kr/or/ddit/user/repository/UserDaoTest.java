@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import kr.or.ddit.common.model.Page;
 import kr.or.ddit.user.model.User;
 import kr.or.ddit.util.MybatisUtil;
 
@@ -104,4 +105,45 @@ public class UserDaoTest {
       assertEquals(50, userList.size());
 
    }
+   /**
+    *
+    * Method : getUserPagingList
+    * 작성자 : PC-23
+    * 변경이력 :
+    * Method 설명 : 사용자 페이징 리스트 조회 테스트
+    */
+   @Test
+   public void getUserPagingList() {
+
+      /***Given***/
+	  Page page = new Page();
+	  page.setPage(3);
+	  page.setPagesize(10);
+
+      /***When***/
+      List<User> userList = userDao.getUserPagingList(sqlSession, page);
+
+      /***Then***/
+      assertEquals(10, userList.size());
+      assertEquals("xuserid22", userList.get(0).getUserId());
+
+   }
+   @Test
+   public void getUserTotalCnt() {
+	   /***Given***/
+
+
+	   /***When***/
+	   int totalCnt = userDao.getUserTotalCnt(sqlSession);
+
+	   /***Then***/
+	   assertEquals(105, totalCnt);
+
+   }
+
+
+
+
+
+
 }

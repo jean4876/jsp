@@ -22,21 +22,14 @@
 <script>
    // 문서 로딩이 완료되고 나서
    $(document).ready(function () {
-
-
-
       // 사용자 정보 클릭시 이벤트 핸들러
       $(".lProdTr").on('click', function () {
-
 /*     	 console.log($(this).children().first().text());
          $('#lprod_gu').val($(this).children().first().text());
          $('#frm').submit(); */
-
-
     	  var dataValue = $(this).data("lprod_gu");
     	  $('#lprod_gu').val(dataValue);
     	  $('#frm').submit();
-
       });
    })
 </script>
@@ -45,7 +38,7 @@
 
 <body>
 <form id="frm" action="${cp }/Prod" method="get">
-	 
+
 </form>
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -95,7 +88,7 @@
 									<th>Lprod_id</th>
 									<th>Lprod_NM</th>
 								</tr>
-
+				
 								<c:forEach items="${lprodList}" var="lprod">
 									<tr class = "lProdTr" data-lprod_gu="${lprod.lprod_gu}">
 									<input type="hidden" value="${lprod.lprod_gu}">

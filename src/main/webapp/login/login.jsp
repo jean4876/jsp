@@ -15,7 +15,8 @@
     <title>Signin Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="${pageContext.request.contextPath }/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext
+    .request.contextPath }/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="${pageContext.request.contextPath }/css/signin.css" rel="stylesheet">

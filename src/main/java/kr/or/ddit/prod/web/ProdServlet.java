@@ -35,7 +35,6 @@ public class ProdServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		logger.debug("lprodgu = {}");
 
 		String prod_lgu = request.getParameter("lprod_gu");
 

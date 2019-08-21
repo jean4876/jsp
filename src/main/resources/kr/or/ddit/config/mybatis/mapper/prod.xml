@@ -17,7 +17,7 @@
   from prod a , lprod b, buyer c
   where  b.LPROD_GU = a.PROD_LGU
   and a.prod_buyer = c.buyer_id
-  and b.lprod_gu = #{prod_lgu}
+  and b.lprod_gu = #{lprod_gu}
 
 
 </select>
