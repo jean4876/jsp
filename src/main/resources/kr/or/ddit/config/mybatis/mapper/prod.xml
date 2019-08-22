@@ -7,7 +7,6 @@
 
 <select id="selectLProdList" resultType="prodVO" parameterType="String">
 
-
    select b.lprod_nm as lprod_nm,
           b.lprod_gu as prod_lgu,
           c.BUYER_NAME as buyer_name,
@@ -18,7 +17,6 @@
   where  b.LPROD_GU = a.PROD_LGU
   and a.prod_buyer = c.buyer_id
   and b.lprod_gu = #{lprod_gu}
-
 
 </select>
 

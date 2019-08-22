@@ -50,7 +50,7 @@ public class UserService implements IUserService {
    }
 
 	@Override
-	public Map<String, Object>getUserPagingList(Page page) {
+	public Map<String, Object> getUserPagingList(Page page) {
 		  Map<String, Object> map  = new HashMap<String, Object>();
 		  SqlSession sqlSession = MybatisUtil.getSession();
 

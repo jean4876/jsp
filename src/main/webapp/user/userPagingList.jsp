@@ -115,7 +115,7 @@
                              단 1페이지인 경우는 li 태그에 class="disabled"를 추가하고 이동 경로는 차단
                          --%>
                         <c:choose>
-                           <c:when test="${param.page == 1 }">
+                           <c:when test="${pageVo.page == 1 }">
                               <li class="disabled">
                                  <a href="#" aria-label="Previous">
                                    <span aria-hidden="true">&laquo;</span>
@@ -124,7 +124,7 @@
                            </c:when>
                            <c:otherwise>
                               <li>
-                                 <a href="${cp }/UserPagingList?page=${param.page-1 }&pagesize=10" aria-label="Previous">
+                                 <a href="${cp }/UserPagingList?page=${pageVo.page-1 }&pagesize=10" aria-label="Previous">
                                    <span aria-hidden="true">&laquo;</span>
                                  </a>
                                </li>
@@ -134,7 +134,7 @@
                         <c:forEach begin="1" end="${paginationSize}" var="page">
                            <%-- 방법1 --%>
                            <c:choose>
-                              <c:when test="${page == param.page}">
+                              <c:when test="${page == pageVo.page}">
                                  <li   class="active"><span>${page }</span></li>
                               </c:when>
                               <c:otherwise>
@@ -149,7 +149,7 @@
                         </c:forEach>
 
                         <c:choose>
-                           <c:when test="${param.page == paginationSize }">
+                           <c:when test="${pageVo.page == paginationSize }">
                                <li class="disabled">
                                  <a href="#" aria-label="Next">
                                    <span aria-hidden="true">&raquo;</span>
@@ -158,7 +158,7 @@
                            </c:when>
                            <c:otherwise>
                               <li>
-                                 <a href="${cp }/userPagingList?page=${param.page+1 }&pagesize=10" aria-label="Next">
+                                 <a href="${cp }/userPagingList?page=${pageVo.page+1 }&pagesize=10" aria-label="Next">
                                    <span aria-hidden="true">&raquo;</span>
                                  </a>
                                </li>

@@ -38,6 +38,7 @@
 
 <body>
 <form id="frm" action="${cp }/Prod" method="get">
+	<input type="hidden" id="lprod_gu" name="lprod_gu"/>
 
 </form>
 
@@ -88,7 +89,7 @@
 									<th>Lprod_id</th>
 									<th>Lprod_NM</th>
 								</tr>
-				
+
 								<c:forEach items="${lprodList}" var="lprod">
 									<tr class = "lProdTr" data-lprod_gu="${lprod.lprod_gu}">
 									<input type="hidden" value="${lprod.lprod_gu}">

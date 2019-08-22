@@ -1,4 +1,4 @@
-package kr.or.ddit.user.web;
+package kr.or.ddit.lprod.web;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,28 +11,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.or.ddit.common.model.Page;
-import kr.or.ddit.user.model.User;
-import kr.or.ddit.user.service.IUserService;
-import kr.or.ddit.user.service.UserService;
+import kr.or.ddit.lprod.model.LprodVO;
+import kr.or.ddit.lprod.repository.ILprodDao;
+import kr.or.ddit.lprod.repository.LprodDao;
+import kr.or.ddit.lprod.service.ILprodService;
+import kr.or.ddit.lprod.service.LprodService;
 
 /**
- * Servlet implementation class UserPagingListController
+ * Servlet implementation class LprodPagingListServlet
  */
-@WebServlet("/UserPagingList")
-public class UserPagingListController extends HttpServlet {
+@WebServlet("/LprodPagingList")
+public class LprodPagingListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private IUserService userService;
+	private ILprodService lprodService;
 
-	@Override
+    @Override
 	public void init() throws ServletException {
-		userService = new UserService();
+    	lprodService = new LprodService();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-		// page, pagesize 파라미터 받기
 		String pageStr = request.getParameter("page");
 		String pagesizeStr = request.getParameter("pagesize");
 
@@ -45,19 +45,19 @@ public class UserPagingListController extends HttpServlet {
 
 
 
-		// userService 객체를 이용하여 getUserPagingList를 호출
-		// 반환된 사용자 리스트를 request객체에 속성으로 저장
-		Map<String, Object> resultMap = userService.getUserPagingList(p);
-		List<User> userList = (List<User>) resultMap.get("userList");
+		Map<String, Object> resultMap = lprodService.getLprodPagingList(p);
+		List<LprodVO> lprodList = (List<LprodVO>) resultMap.get("lprodList");
 		int paginationSize = (Integer) resultMap.get("paginationSize");
-		request.setAttribute("userList", userList);
+		request.setAttribute("lprodList", lprodList);
 		request.setAttribute("paginationSize", paginationSize);
 
-		// webapp/user/userPagingList.jsp
-		//				userList.jsp 복사
-		request.getRequestDispatcher("/user/userPagingList.jsp").forward(request, response);
+		request.getRequestDispatcher("/user/lprodPagingList.jsp").forward(request, response);
+
+
+
 
 	}
 
 
 }
+

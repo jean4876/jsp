@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.or.ddit.lprod.model.LprodVO;
-import kr.or.ddit.lprod.repository.LprodDaoImpl;
+import kr.or.ddit.lprod.repository.LprodDao;
+import kr.or.ddit.lprod.service.LprodService;
+import kr.or.ddit.user.service.UserService;
 
 /**
  * Servlet implementation class LprodServlet
@@ -19,15 +21,17 @@ import kr.or.ddit.lprod.repository.LprodDaoImpl;
 public class LprodServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public LprodServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private LprodService lprodService;
+
+    @Override
+	public void init() throws ServletException {
+    	lprodService = new LprodService();
+	}
+
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		LprodDaoImpl lprodDao = new LprodDaoImpl();
-		List<LprodVO> lprodList = lprodDao.selectAllLprodList();
+		List<LprodVO> lprodList = lprodService.selectAllLprodList();
 
 		request.setAttribute("lprodList", lprodList);
 
