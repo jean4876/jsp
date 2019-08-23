@@ -56,7 +56,7 @@
 <!--header  -->
 <%@include file="/commonJsp/header.jsp"%>
 <body>
-	<form id="frm" action="${cp}/user" method="get"}>
+	<form id="frm" action="${cp}/user" method="get">
 		<input type="hidden" id="userId" name="userId" />
 
 	</form>
@@ -103,11 +103,14 @@
 										<td>${user.userId}</td>
 										<td>${user.userNM}</td>
 										<td>${user.alias}</td>
-										<td>${user.reg_dt_fmt}</td>
+										<td>${user.reg_dt}</td>
 									</tr>
 								</c:forEach>
 							</table>
 						</div>
+
+						<a href="${cp }/UserForm" class="btn btn-default pull-right">사용자 등록</a>
+
                   <div class="text-center">
                      <ul class="pagination">
 

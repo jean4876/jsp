@@ -1,12 +1,12 @@
 package kr.or.ddit.service;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.session.SqlSession;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -14,10 +14,8 @@ import org.slf4j.LoggerFactory;
 
 import kr.or.ddit.common.model.Page;
 import kr.or.ddit.user.model.User;
-import kr.or.ddit.user.repository.UserDao;
 import kr.or.ddit.user.service.IUserService;
 import kr.or.ddit.user.service.UserService;
-import kr.or.ddit.util.MybatisUtil;
 
 public class UserServiceTest {
 
@@ -25,9 +23,12 @@ public class UserServiceTest {
 
    private IUserService userService;
 
+   private String userId = "brownTest";
+
    @Before
    public void setup() {
       userService = new UserService();
+      userService.deleteUser(userId);
    }
 
    /**
@@ -121,6 +122,7 @@ public class UserServiceTest {
 
    @Test
    public void ceilingTest() {
+
 	/***Given***/
 	int totalCnt = 105;
 	int pagesize = 10;
@@ -132,6 +134,60 @@ public class UserServiceTest {
 	assertEquals(11, (int)paginationSize);
 
    }
+
+   @Test
+   public void getUserTotalCnt() {
+	   /***Given***/
+
+
+	   /***When***/
+	   int totalCnt = userService.getUserTotalCnt();
+
+	   /***Then***/
+	   assertEquals(105, totalCnt);
+
+   }
+
+   @Test
+   public void insertUser() throws ParseException {
+		/***Given***/
+	   User user = new User();
+
+	   String userId = "brownTest";
+
+	   user.setUserId(userId);
+	   user.setUserNM("브라운테스트");
+	   user.setAlias("곰테스트");
+	   user.setReg_dt(new SimpleDateFormat("yyyy-MM-dd").parse("2019-08-08"));
+	   user.setAddr1("대전광역시 중구 중앙로 76");
+	   user.setAddr2("영민빌딩 2층 DDIT");
+	   user.setZipcode("34940");
+	   user.setPass("brownTest1234");
+
+
+	/***When***/
+	   int insertCnt =  userService.insertUser(user);
+	/***Then***/
+	   assertEquals(1, insertCnt);
+   }
+
+   public void deleteUser() throws ParseException {
+
+		/***Given***/
+	   User user = new User();
+
+	   String userId = "brown";
+
+	   user.setUserId(userId);
+	/***When***/
+	   int insertCnt =  userService.deleteUser(userId);
+	/***Then***/
+	   assertEquals(1, insertCnt);
+
+   }
+
+
+
 
 
 

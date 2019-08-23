@@ -32,4 +32,15 @@ select a.*
   	from users
   </select>
 
+  <!-- 사용자 등록 -->
+  <insert id="insertUser" parameterType="userVo">
+  insert into users (userId, userNm, alias, reg_dt,  addr1, addr2, zipcode, pass)
+	values(#{userId}, #{userNM}, #{alias}, #{reg_dt},  #{addr1}, #{addr2}, #{zipcode},#{pass})
+  </insert>
+
+  <!-- 사용자 삭제 -->
+  <delete id = "deleteUser" parameterType="String">
+  	delete users where userid = #{userid}
+  </delete>
+
 </mapper>

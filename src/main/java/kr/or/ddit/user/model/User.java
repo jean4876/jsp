@@ -15,9 +15,11 @@ public class User {
 	private String userNM;	// 사용자 이름
 	private String alias;
 	private Date reg_dt;
-	private String reg_dt_fmt = "2019-09-20";
+	private String addr1;
+	private String addr2;
+	private String zipcode;
 
-	private static final Logger logger = LoggerFactory.getLogger(User.class);
+
 
 	public User() {}
 
@@ -41,18 +43,23 @@ public class User {
 		this.reg_dt = reg_dt;
 	}
 
-	public String getReg_dt_fmt() {
-
-		logger.debug("getReg_dt_fmt method call");
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		return sdf.format(reg_dt);
-	}
-
-
 	public User(String userName) {
 		this.userNM = userName;
 	}
 
+
+
+	public User(String userId, String userNM, String alias, Date reg_dt, String addr1, String addr2,
+			String zipcode, String pass) {
+		this.userId = userId;
+        this.userNM = userNM;
+        this.alias = alias;
+        this.reg_dt = reg_dt;
+        this.addr1 = addr1;
+        this.addr2 = addr2;
+        this.zipcode = zipcode;
+        this.pass = pass;
+	}
 
 
 	public String getUserNM() {
@@ -83,11 +90,41 @@ public class User {
 		this.pass = pass;
 	}
 
+	public String getAddr1() {
+		return addr1;
+	}
+
+
+	public void setAddr1(String addr1) {
+		this.addr1 = addr1;
+	}
+
+
+	public String getAddr2() {
+		return addr2;
+	}
+
+
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
+	}
+
+
+	public String getZipcode() {
+		return zipcode;
+	}
+
+
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
 
 	@Override
 	public String toString() {
-		return "UserVO [userId=" + userId + ", pass=" + pass + ", userNM=" + userNM + "]";
+		return "User [userId=" + userId + ", pass=" + pass + ", userNM=" + userNM + ", alias=" + alias + ", reg_dt="
+				+ reg_dt + ", addr1=" + addr1 + ", addr2=" + addr2 + ", zipcode=" + zipcode + "]";
 	}
+
 
 	public boolean checkLoginValidate(String userId, String pass) {
 		if(userId.equals(this.userId) && pass.equals(this.pass)) {

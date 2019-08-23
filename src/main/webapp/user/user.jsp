@@ -62,7 +62,7 @@
                <div class="form-group">
                   <label for="pass" class="col-sm-2 control-label">등록일</label>
                   <div class="col-sm-10">
-                     <label class="control-label">${user.reg_dt_fmt }</label>
+                     <label class="control-label">${user.reg_dt}</label>
                   </div>
                </div>
 
@@ -75,7 +75,7 @@
 
                <div class="form-group">
                   <div class="col-sm-offset-2 col-sm-10">
-                     <button type="submit" class="btn btn-default">사용자 수정</button>
+                     <button type="submit" class="btn btn-default">사용자 등록</button>
                   </div>
                </div>
             </form>

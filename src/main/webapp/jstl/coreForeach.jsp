@@ -48,7 +48,7 @@
 	<%
 		Map map = new HashMap();
 		map.put("userId", "brown");
-		map.put("userNm",  "브라운");
+		map.put("userNM",  "브라운");
 		map.put("userAlias",  "곰");
 		request.setAttribute("user", map);
 

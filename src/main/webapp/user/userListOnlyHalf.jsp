@@ -90,7 +90,7 @@
             		<td>${user.userId}</td>
             		<td>${user.userNM}</td>
             		<td>${user.alias}</td>
-            		<td>${user.reg_dt_fmt}</td>
+            		<td>${user.reg_dt}</td>
 
             	</tr>
             </c:forEach>
