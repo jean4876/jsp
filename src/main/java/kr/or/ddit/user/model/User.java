@@ -43,17 +43,6 @@ public class User {
       this.realfilename = realfilename;
    }
 
-   public User(String userId, String userNm, String alias, Date reg_dt, String addr1, String addr2, String zipcode, String pass, String realfilename) {
-	      this.userId = userId;
-	      this.userNM = userNm;
-	      this.alias = alias;
-	      this.reg_dt = reg_dt;
-	      this.addr1 = addr1;
-	      this.addr2 = addr2;
-	      this.zipcode = zipcode;
-	      this.pass = pass;
-	      this.realfilename = realfilename;
-	   }
 
    public String getRealfilename2() {
 	return realfilename2;
@@ -121,6 +110,8 @@ public String toString() {
 
 public boolean checkLoginValidate(String userId, String pass) {
 
+
+	  //암호화 문장끼리 비교
       if(userId.equals(this.userId) && KISA_SHA256.encrypt(pass).equals(this.pass)) {
          return true;
       }

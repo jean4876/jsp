@@ -44,7 +44,7 @@ select a.*
   </delete>
   <!-- 사용자 정보 수정 -->
   <update id="updateUser" parameterType="userVo">
-  	update users set userNM = #{userNM}, alias = #{alias}, addr1 = #{addr1},
+  	update users set userNm = #{userNM}, alias = #{alias}, addr1 = #{addr1},
   	addr2 = #{addr2}, zipcode = #{zipcode}, pass = #{pass}, realfilename = #{realfilename}
   	where userId = #{userId}
   </update>

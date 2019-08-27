@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.UUID;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +22,7 @@ import kr.or.ddit.user.service.UserService;
 import kr.or.ddit.util.FileuploadUtil;
 
 @WebServlet("/userModify")
+@MultipartConfig(maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 5 * 5)
 public class UserModifyController extends HttpServlet {
 	   private static final long serialVersionUID = 1L;
 
@@ -85,6 +87,8 @@ public class UserModifyController extends HttpServlet {
 		// 사용자 정보 수정
 		User user = new User(userId, userNm, alias, reg_dt_date, addr1, addr2, zipcode, pass, filename, path);
 		int updateCnt = 0;
+		updateCnt = userService.updateUser(user);
+		logger.debug("updateCnt : {}", updateCnt);
 
 		try {
 			updateCnt = userService.updateUser(user);
