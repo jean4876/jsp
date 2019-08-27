@@ -34,13 +34,20 @@ select a.*
 
   <!-- 사용자 등록 -->
   <insert id="insertUser" parameterType="userVo">
-  insert into users (userId, userNm, alias, reg_dt,  addr1, addr2, zipcode, pass)
-	values(#{userId}, #{userNM}, #{alias}, #{reg_dt},  #{addr1}, #{addr2}, #{zipcode},#{pass})
+  insert into users (userId, userNm, alias, reg_dt,  addr1, addr2, zipcode, pass,realfilename)
+	values(#{userId}, #{userNM}, #{alias}, #{reg_dt},  #{addr1}, #{addr2}, #{zipcode},#{pass},#{realfilename})
   </insert>
 
   <!-- 사용자 삭제 -->
   <delete id = "deleteUser" parameterType="String">
   	delete users where userid = #{userid}
   </delete>
+  <!-- 사용자 정보 수정 -->
+  <update id="updateUser" parameterType="userVo">
+  	update users set userNM = #{userNM}, alias = #{alias}, addr1 = #{addr1},
+  	addr2 = #{addr2}, zipcode = #{zipcode}, pass = #{pass}, realfilename = #{realfilename}
+  	where userId = #{userId}
+  </update>
+
 
 </mapper>

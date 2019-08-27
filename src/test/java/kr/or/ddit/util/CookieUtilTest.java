@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class CookieUtilTest {
    /**
-    * 
+    *
     * Method : getCookieTest
     * 작성자 : PC-12
     * 변경이력 :
@@ -22,14 +22,14 @@ public class CookieUtilTest {
       String rememberMeCookieValue = CookieUtil.getCookie(cookieString, "rememberMe");
       String testCookieValue = CookieUtil.getCookie(cookieString, "test");
       String noExistsCookieValue = CookieUtil.getCookie(cookieString, "notExists");
-      
-      
+
+
       /***Then***/
       assertEquals("brown", userIdValue);
       assertEquals("Y", rememberMeCookieValue);
       assertEquals("testValue", testCookieValue);
       assertNull(noExistsCookieValue);
-      
+
    }
 
 }
