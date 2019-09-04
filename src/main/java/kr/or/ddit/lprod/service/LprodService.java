@@ -10,7 +10,6 @@ import kr.or.ddit.common.model.Page;
 import kr.or.ddit.lprod.model.LprodVO;
 import kr.or.ddit.lprod.repository.ILprodDao;
 import kr.or.ddit.lprod.repository.LprodDao;
-import kr.or.ddit.user.model.User;
 import kr.or.ddit.util.MybatisUtil;
 
 public class LprodService implements ILprodService{

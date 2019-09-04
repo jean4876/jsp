@@ -112,7 +112,8 @@ public boolean checkLoginValidate(String userId, String pass) {
 
 
 	  //암호화 문장끼리 비교
-      if(userId.equals(this.userId) && KISA_SHA256.encrypt(pass).equals(this.pass)) {
+	//KISA_SHA256.encrypt(pass)
+      if(userId.equals(this.userId) && pass.equals(this.pass)) {
          return true;
       }
 
