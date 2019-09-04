@@ -12,15 +12,11 @@
 <body>
 	<h2> jstl fmt</h2>
 <c:set var="userId" value ="brown"/>
-
 <%--
-
 	<fmt:bundle> : 출력할 메세지를 담고있는 리소스 번들 지정
 					<fmt:message>태그가 bundle 태그 안에 기술
 	<fmt:message> : 출력하고자 하는 code지정
 	<fmt:param> : message에 파라미터가 있는경우 전달
-
-
  --%>
 
 <fmt:bundle basename="kr.or.ddit.msg.message"> <%-- message_국가_언어.properties--%>
@@ -79,8 +75,5 @@
 	formateDate : <fmt:formatDate value="${dt }" pattern="yyyy-MM-dd"/><br>
 	formateDate : <fmt:formatDate value="${dt }" pattern="yyyy-MM-dd"/><br>
 	formateDate : <fmt:formatDate value="${dt }" pattern="yyyy-MM-dd HH:mm:ss"/><br>
-
-
-
 </body>
 </html>
