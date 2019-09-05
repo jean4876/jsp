@@ -48,7 +48,7 @@ public class UserModifyController extends HttpServlet {
 	   }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+		//request.setCharacterEncoding("UTF-8");
 
 		String userId = request.getParameter("userId");
 		String userNm = request.getParameter("userNM");

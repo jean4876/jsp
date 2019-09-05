@@ -71,7 +71,7 @@
 	</resource-ref>
 
 	<!-- filter 설정 -->
-	<filter>
+ 	<filter>
 		<filter-name>requestCountFilter</filter-name>
 		<filter-class>kr.or.ddit.filter.RequestCountFilter</filter-class>
 	</filter>
