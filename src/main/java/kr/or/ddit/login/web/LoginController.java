@@ -21,16 +21,12 @@ import kr.or.ddit.user.service.UserService;
 @WebServlet(urlPatterns = {"/login"}, loadOnStartup = 5)
 public class LoginController extends HttpServlet {
    private static final long serialVersionUID = 1L;
-
    private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
-
    private IUserService userService;
-
    @Override
 	public void init() throws ServletException {
 	   userService = new UserService();
 	}
-
    /**
     *
     * Method : doGet
@@ -50,9 +46,7 @@ public class LoginController extends HttpServlet {
 	  Cookie[] cookies = request.getCookies();
 	  if(cookies != null) {
 		  for(Cookie cookie : cookies) {
-
 			  logger.debug("cookie name : {}, cookie value : {}", cookie.getName(), cookie.getValue());
-
 		  }
 	  }
 
@@ -60,9 +54,7 @@ public class LoginController extends HttpServlet {
 	  Cookie cookie = new Cookie("serverGen", "serverValue");
 	  cookie.setMaxAge(60*60*24*7); // 7일의 유효기간을 갖는 쿠키		// :) setMaxAge는 초단위 이다.
 	  response.addCookie(cookie);
-
       request.getRequestDispatcher("/login/login.jsp").forward(request, response);
-
    }
 
    /**
