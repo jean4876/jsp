@@ -20,10 +20,8 @@
                <li><a href="#">Settings</a></li>
                <li><a href="#">Profile</a></li>
                <li><a href="#">Help</a></li>
-               <%User s_user = (User)session.getAttribute("S_USERVO"); %>
-               <li><a href="#">표현식 : <%=s_user.getUserNM() %></a></li>
-               <li><a href="#">el(method) : ${S_USERVO.getUserNM()}</a></li>
-               <li><a href="#">el(field) : ${S_USERVO.userNM}</a></li> <%-- :) 실제로는 field를 많이 사용 --%>
+               <li><a href="#">로그아웃</a></li>
+               <li><a href="${cp }/logout">로그아웃</a></li>
             </ul>
             <form class="navbar-form navbar-right">
                <input type="text" class="form-control" placeholder="Search...">

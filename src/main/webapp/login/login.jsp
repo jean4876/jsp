@@ -11,12 +11,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-    <title>Signin Temp
-    late for Bootstrap</title>
+    <title>Signin Template for Bootstrap</title>
     <!-- Bootstrap core CSS -->
-    <link href="${pageContext
-
-    .request.contextPath }/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="${pageContext.request.contextPath }/css/signin.css" rel="stylesheet">
@@ -92,6 +89,7 @@
               placeholder="userId" required autofocus value=<%=userId %>>
 
         <label for="pass" class="sr-only">Password</label>
+
 
         <input type="password" id="pass" name="pass"
                class="form-control" placeholder="Password" required>

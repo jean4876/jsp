@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Servlet implementation class ContextPathInitServlet
  */
-@WebServlet(urlPatterns = "/ContextPathInit" , loadOnStartup = 1)
+//@WebServlet(urlPatterns = "/ContextPathInit" , loadOnStartup = 1)
 public class ContextPathInitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(ContextPathInitServlet.class);

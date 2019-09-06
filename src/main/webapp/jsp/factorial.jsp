@@ -4,15 +4,15 @@
 <%!
 	public int factorial(int fac){
 		int result = 0;
-		
+
 		if(fac <= 1){
 		  return 1;
 		}else{
-			
+
 			result = fac * factorial(fac-1);
 			return result;
 		}
-		
+
 	}
 %>
 <!DOCTYPE html>

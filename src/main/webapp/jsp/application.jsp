@@ -15,22 +15,22 @@
 		out.write("application.getMinorVersion() : " + application.getMinorVersion()+"<br>");
 		out.write("application.getServletContextName() : " + application.getServletContextName()+"<br>");
 		%>
-		
+
 		<h2>jsp 방식</h2>
 		application.getServerInfo() : <%=application.getServerInfo() %><br>
 		application.getContextPath() : <%=application.getContextPath() %><br>
 		application.getMajorVersion() : <%=application.getMajorVersion() %><br>
 		application.getMinorVersion() : <%=application.getMinorVersion() %><br>
 	    application.getServletContextName() : <%=application.getServletContextName() %>
-	    
+
 	    <h2>initParam</h2>
 	    <%
 	    	String admin = application.getInitParameter("ADMIN");
 	    	out.write("admin : " + admin + "<br>");
-	    
+
 	    %>
-		
-		
+
+
 
 </body>
 </html>

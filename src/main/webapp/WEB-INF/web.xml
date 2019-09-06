@@ -71,14 +71,23 @@
 	</resource-ref>
 
 	<!-- filter 설정 -->
- 	<filter>
+<!--  	<filter>
 		<filter-name>requestCountFilter</filter-name>
 		<filter-class>kr.or.ddit.filter.RequestCountFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>requestCountFilter</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping>
+	</filter-mapping> -->
+
+
+	<listener>
+		<listener-class>kr.or.ddit.listener.ContextPathInitListener</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>kr.or.ddit.listener.SessionListener</listener-class>
+	</listener>
 
 
 </web-app>
