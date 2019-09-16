@@ -26,7 +26,7 @@ public class FileuploadUtil {
 		for (String attr : attrs) {
 			if (attr.startsWith("filename")) {
 				String[] keyValue = attr.split("=");
-				filename = keyValue[1].substring(keyValue[1].indexOf("\"") + 1, keyValue[1].lastIndexOf("\""));
+				filename = keyValue[1].substring(keyValue[1].indexOf("\"") + 1, keyValue[1].lastIndexOf("\"")); // NOPMD by PC-23 on 19. 9. 9 오후 2:18
 				break;
 			}
 		}

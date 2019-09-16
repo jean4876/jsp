@@ -108,8 +108,7 @@ model<%@page import="kr.or.ddit.user.model.User"%>
 						</table>
 					</div>
 
-					<a href="${cp }/userForm" class="btn btn-default pull-right">사용자
-						등록</a>
+					<a href="${cp }/userForm" class="btn btn-default pull-right">사용자 등록</a>
 
 					<div class="text-center">
 						<ul class="pagination">
@@ -132,7 +131,6 @@ model<%@page import="kr.or.ddit.user.model.User"%>
 							</c:choose>
 
 							<c:forEach begin="1" end="${paginationSize}" var="page">
-								<%-- 방법1 --%>
 								<c:choose>
 									<c:when test="${page == pageVo.page}">
 										<li class="active"><span>${page }</span></li>
@@ -142,11 +140,6 @@ model<%@page import="kr.or.ddit.user.model.User"%>
 											href="${cp }/UserPagingList?page=${page }&pagesize=10">${page }</a></li>
 									</c:otherwise>
 								</c:choose>
-
-								<%-- 방법2 --%>
-								<%--                            <li <c:if test="${page == param.page}">class="active"</c:if>>
-                              <a href="${cp }/userPagingList?page=${page }&pagesize=10">${page }</a>
-                           </li> --%>
 							</c:forEach>
 
 							<c:choose>
